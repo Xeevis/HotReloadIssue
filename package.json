@@ -1,0 +1,18 @@
+{
+	"private": true,
+	"scripts": {
+		"dev": "cross-env NODE_ENV=development TAILWIND_DISABLE_TOUCH=true snowpack dev",
+		"watch": "cross-env NODE_ENV=development TAILWIND_DISABLE_TOUCH=true snowpack build --watch",
+		"build": "cross-env NODE_ENV=production snowpack build"
+	},
+	"devDependencies": {
+		"@jadex/snowpack-plugin-tailwindcss-jit": "^0.3.0",
+		"@jadex/snowpack-plugin-watch": "file:./dev/snowpack-plugin-watch",
+		"@snowpack/plugin-postcss": "^1.2.2",
+		"autoprefixer": "^10.2.5",
+		"cross-env": "^7.0.3",
+		"postcss": "^8.2.15",
+		"snowpack": "^3.4.0",
+		"tailwindcss": "^2.1.2"
+	}
+}

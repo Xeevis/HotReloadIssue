@@ -1,0 +1,57 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "dotnet:watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run"
+            ],
+            "options": {
+                "env": {
+                    "DOTNET_USE_POLLING_FILE_WATCHER": "false"
+                }
+            },
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "clear": true,
+                "group": "dev"
+            }
+        },
+        {
+            "label": "snowpack:watch",
+            "type": "npm",
+            "script": "watch",
+            "detail": "cross-env NODE_ENV=development TAILWIND_DISABLE_TOUCH=true snowpack build --watch",
+            "presentation": {
+                "clear": true,
+                "group": "dev"
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": ""
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*building files.*",
+                    "endsPattern": "^.*write complete.*"
+                }
+            }
+        },
+        {
+            "label": "dev",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "snowpack:watch",
+                "dotnet:watch",
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+{
+  "private": true,
+  "name": "@jadex/snowpack-plugin-watch",
+  "main": "plugin.js"
+}
